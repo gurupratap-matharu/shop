@@ -20,12 +20,12 @@ class Cart:
         product_id = str(product.id)
 
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': 0, 'price': str(product.price)}
+            self.cart[product_id] = {"quantity": 0, "price": str(product.price)}
 
         if override_quantity:
-            self.cart[product_id]['quantity'] = quantity
+            self.cart[product_id]["quantity"] = quantity
         else:
-            self.cart[product_id]['quantity'] += quantity
+            self.cart[product_id]["quantity"] += quantity
 
         self.save()
 
@@ -52,7 +52,9 @@ class Cart:
     def get_total_price(self):
         """Calculate the total price of the entire cart."""
 
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+        return sum(
+            Decimal(item["price"]) * item["quantity"] for item in self.cart.values()
+        )
 
     def __iter__(self):
         """Iterate over the items in the cart and get the products from the database."""
@@ -62,14 +64,14 @@ class Cart:
 
         cart = self.cart.copy()
         for product in products:
-            cart[str(product.id)]['product'] = product
+            cart[str(product.id)]["product"] = product
 
         for item in cart.values():
-            item['price'] = Decimal(item['price'])
-            item['total_price'] = item['price'] * item['quantity']
+            item["price"] = Decimal(item["price"])
+            item["total_price"] = item["price"] * item["quantity"]
             yield item
 
     def __len__(self):
         """Count all the items in the cart."""
 
-        return sum(item['quantity'] for item in self.cart.values())
+        return sum(item["quantity"] for item in self.cart.values())
