@@ -1,5 +1,6 @@
 from typing import Optional
 
+from cart.forms import CartAddProductForm
 from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, ListView
 
@@ -33,3 +34,8 @@ class ProductDetail(DetailView):
     def get_object(self, queryset=None):
         product = get_object_or_404(Product, id=self.kwargs['id'], slug=self.kwargs['category_slug'], available=True)
         return product
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cart_product_form'] = CartAddProductForm()
+        return context
