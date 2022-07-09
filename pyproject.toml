@@ -33,5 +33,7 @@ exclude = '''
 /(
   | migrations
 )/
-
 '''
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "main.settings"
