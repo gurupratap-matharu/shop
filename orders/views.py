@@ -1,7 +1,8 @@
 import logging
 from typing import Any, Dict
 
-from django.shortcuts import render
+from django.shortcuts import redirect
+from django.urls import reverse
 from django.views.generic.edit import FormView
 
 from cart.cart import Cart
@@ -36,7 +37,11 @@ class OrderCreateView(FormView):
         # Send email asynchronously using celery
         send_order_creation_mail.delay(order.id)
 
-        return render(self.request, "orders/order_created.html", {"order": order})
+        # Set the order_id in the session
+        self.request.session["order_id"] = order.id # TODO WHY DO WE DO THIS?
+
+        # Redirect for payment
+        return redirect(reverse("payment:process"))
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
