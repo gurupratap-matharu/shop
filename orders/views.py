@@ -8,6 +8,7 @@ from cart.cart import Cart
 
 from .forms import OrderCreateForm
 from .models import OrderItem
+from .tasks import send_order_creation_mail
 
 logger = logging.getLogger(__name__)
 
@@ -31,6 +32,9 @@ class OrderCreateView(FormView):
             )
 
         cart.clear()
+
+        # Send email asynchronously using celery
+        send_order_creation_mail.delay(order.id)
 
         return render(self.request, "orders/order_created.html", {"order": order})
 
