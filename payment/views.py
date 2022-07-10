@@ -21,7 +21,7 @@ def payment_process(request):
         # retrieve nonce
         nonce = request.POST.get("payment_method_nonce", None)
 
-        logger.info("Received Nonce from braintree: " % nonce)
+        logger.info("Received Nonce from braintree: %s", nonce)
         logger.info("Generating sale hold on...")
 
         # create and submit transaction

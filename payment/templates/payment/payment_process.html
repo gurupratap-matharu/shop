@@ -4,7 +4,6 @@
 
 {% block content %}
 <h1>Pay by credit card</h1>
-<h1>Client Token: {{ client_token }}</h1>
 <form id="payment" method="post">
     {% csrf_token %}
 
@@ -27,11 +26,13 @@
     <script>
         var form = document.querySelector('#payment');
         var submit = document.querySelector('input[type="submit"]');
+        var nonce = document.querySelector('#nonce')
 
         braintree.client.create({
             authorization: '{{ client_token }}'
         }, function (clientErr, clientInstance) {
             if (clientErr) {
+                console.error(`Veer braintree could not create client instance :(`);
                 console.error(clientErr);
                 return;
             }
@@ -51,15 +52,15 @@
                 },
                 fields: {
                     number: {
-                        selected: '#card-number'
+                        selector: '#card-number'
                     },
                     cvv: {
-                        selected: '#cvv'
+                        selector: '#cvv'
                     },
                     expirationDate: {
                         selector: '#expiration-date'
                     }
-                }, 
+                },
             }, function (hostedFieldsErr, hostedFieldsInstance) {
                 if (hostedFieldsErr) {
                     console.error(hostedFieldsErr);
@@ -68,18 +69,22 @@
 
                 submit.removeAttribute('disabled');
 
-                form.addEventListener('submit', function (event){
+                form.addEventListener('submit', function (event) {
                     event.preventDefault();
 
-                    hostedFieldsInstance.tokenize(function(tokenizeErr, payload){
+                    hostedFieldsInstance.tokenize(function (tokenizeErr, payload) {
                         if (tokenizeErr) {
+                            console.log('Veer braintree could not tokenize');
                             console.error(tokenizeErr);
                             return;
                         }
                         // set nonce to send to the submit.removeAttribute
-                        document.getElementbyId('nonce').value = payload.nonce;
+                        console.log(`Veer once: ${payload.once}`);
+                        nonce.value = payload.nonce;
+                        // document.getElementbyId('nonce').value = payload.nonce;
                         // submit form
-                        document.getElementbyId('payment').submit();
+                        form.submit();
+                        // document.getElementbyId('payment').submit();
                     });
                 }, false);
             });
