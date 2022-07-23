@@ -79,12 +79,9 @@
                             return;
                         }
                         // set nonce to send to the submit.removeAttribute
-                        console.log(`Veer once: ${payload.once}`);
                         nonce.value = payload.nonce;
-                        // document.getElementbyId('nonce').value = payload.nonce;
                         // submit form
                         form.submit();
-                        // document.getElementbyId('payment').submit();
                     });
                 }, false);
             });
