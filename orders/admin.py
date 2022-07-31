@@ -3,6 +3,8 @@ import datetime
 
 from django.contrib import admin
 from django.http import HttpResponse
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 from .models import Order, OrderItem
 
@@ -11,7 +13,7 @@ def export_to_csv(modeladmin, request, queryset):
     """Custom OrderAdmin action to export selected orders to a CSV file."""
 
     opts = modeladmin.model._meta
-    content_disposition = f"attachment; filename={opts.verbose_name}.csv"
+    content_disposition = f"attachment; filename={opts.verbose_name_plural}.csv"
 
     fields = [
         field
@@ -46,6 +48,13 @@ def export_to_csv(modeladmin, request, queryset):
 export_to_csv.short_description = "Export to CSV"
 
 
+def order_detail(obj):
+    """Returns the custom admin order detail page link"""
+
+    url = reverse("orders:admin_order_detail", args=[obj.id])
+    return mark_safe(f"<a href='{url}'>View</a>")
+
+
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
     raw_id_fields = ["product"]
@@ -64,6 +73,7 @@ class OrderAdmin(admin.ModelAdmin):
         "paid",
         "created",
         "updated",
+        order_detail,
     ]
     list_filter = ["paid", "created", "updated"]
     inlines = [OrderItemInline]
