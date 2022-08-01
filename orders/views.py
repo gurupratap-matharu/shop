@@ -25,8 +25,16 @@ class OrderCreateView(FormView):
 
     def form_valid(self, form):
         logger.info("Order form is valid :)")
-        order = form.save()  # type: ignore
+
         cart = Cart(self.request)
+
+        order = form.save(commit=False)  # type: ignore
+
+        if cart.coupon:
+            order.coupon = cart.coupon
+            order.discount = cart.coupon.discount
+
+        order.save()
 
         # Think of putting this Orderline creation as a method in the Order model. View should not handle it
         for item in cart:
