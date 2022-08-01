@@ -144,6 +144,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 CART_SESSION_ID = "cart"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+COMPANY_EMAIL = "admin@myshop.com"
 
 BRAINTREE_MERCHANT_ID = os.getenv("BRAINTREE_MERCHANT_ID")
 BRAINTREE_PUBLIC_KEY = os.getenv("BRAINTREE_PUBLIC_KEY")
