@@ -3,7 +3,7 @@
 .DS_Store
 
 # Django #
-
+*.mo
 *.log
 *.pot
 *.pyc
