@@ -8,21 +8,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-02 17:08+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2022-08-02 17:28+0100\n"
+"PO-Revision-Date: 2022-08-02 16:21+0000\n"
+"Last-Translator:   <superuser@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
 
-#: main/settings.py:122
+#: main/settings.py:124
 msgid "English"
 msgstr "Inglés"
 
-#: main/settings.py:123
+#: main/settings.py:125
 msgid "Spanish"
 msgstr "Español"
 
@@ -33,6 +34,19 @@ msgstr "Mi Tienda"
 #: shop/templates/shop/base.html:20
 msgid "Your cart"
 msgstr "Su Cartera"
+
+#: shop/templates/shop/base.html:23
+#, python-format
+msgid ""
+"\n"
+"                %(items)s item, $%(total)s\n"
+"                "
+msgid_plural ""
+"\n"
+"                %(items)s items, $%(total)s\n"
+"                "
+msgstr[0] ""
+msgstr[1] ""
 
 #: shop/templates/shop/base.html:31
 msgid "Your cart is empty."
