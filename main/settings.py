@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 
 import braintree
+from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -118,9 +119,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en"
 LANGUAGES = (
-    ("en", "English"),
-    ("es", "Spanish"),
+    ("en", _("English")),
+    ("es", _("Spanish")),
 )
+LOCALE_PATHS = (BASE_DIR / "locale/",)
 
 TIME_ZONE = "UTC"
 
