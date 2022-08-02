@@ -12,7 +12,22 @@
 </head>
 
 <body>
-    <div id="header"><a href="/" class="logo">{% trans "My Shop" %}</a></div>
+    <div id="header">
+        <a href="/" class="logo">{% trans "My Shop" %}</a>
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        <div class="languages">
+            <p>{% trans "Language" %}</p>
+            <ul class="languages">
+                {% for language in languages %}
+                <a href="/{{ language.code }}/" {% if language.code == LANGUAGE_CODE %} class="selected" {% endif %}>
+                    <li>{{ language.name_translated }}</li>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
     <div id="subheader">
         <div class="cart">
             {% with total_items=cart|length %}
