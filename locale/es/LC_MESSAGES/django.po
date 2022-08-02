@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-02 15:04+0100\n"
+"POT-Creation-Date: 2022-08-02 17:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: coupons/forms.py:6
-msgid "Coupon"
-msgstr ""
 
 #: main/settings.py:122
 msgid "English"
@@ -32,29 +28,29 @@ msgstr "Español"
 
 #: shop/templates/shop/base.html:10 shop/templates/shop/base.html:15
 msgid "My Shop"
-msgstr ""
+msgstr "Mi Tienda"
 
 #: shop/templates/shop/base.html:20
 msgid "Your cart"
-msgstr ""
+msgstr "Su Cartera"
 
 #: shop/templates/shop/base.html:31
 msgid "Your cart is empty."
-msgstr ""
+msgstr "Tu cartera está vacía."
 
 #: shop/templates/shop/product_detail.html:21
 msgid "Add to cart"
-msgstr ""
+msgstr "Agregar a la cartera"
 
 #: shop/templates/shop/product_list.html:7
 #: shop/templates/shop/product_list.html:26
 msgid "Products"
-msgstr ""
+msgstr "Productos"
 
 #: shop/templates/shop/product_list.html:13
 msgid "Categories"
-msgstr ""
+msgstr "Categorías"
 
 #: shop/templates/shop/product_list.html:16
 msgid "All"
-msgstr ""
+msgstr "Todos"
