@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-02 17:28+0100\n"
-"PO-Revision-Date: 2022-08-02 16:21+0000\n"
+"POT-Creation-Date: 2022-08-02 17:47+0100\n"
+"PO-Revision-Date: 2022-08-02 16:49+0000\n"
 "Last-Translator:   <superuser@email.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -26,6 +26,26 @@ msgstr "Inglés"
 #: main/settings.py:125
 msgid "Spanish"
 msgstr "Español"
+
+#: main/urls.py:24
+msgid "admin/"
+msgstr "admin/"
+
+#: main/urls.py:25
+msgid "cart/"
+msgstr "cartera/"
+
+#: main/urls.py:26
+msgid "orders/"
+msgstr "pedidos/"
+
+#: main/urls.py:27
+msgid "payment/"
+msgstr "pago/"
+
+#: main/urls.py:28
+msgid "coupons/"
+msgstr "cupon/"
 
 #: shop/templates/shop/base.html:10 shop/templates/shop/base.html:15
 msgid "My Shop"
@@ -46,7 +66,11 @@ msgid_plural ""
 "                %(items)s items, $%(total)s\n"
 "                "
 msgstr[0] ""
+"\n"
+"%(items)s producto, $%(total)s"
 msgstr[1] ""
+"\n"
+"%(items)s productos, $%(total)s"
 
 #: shop/templates/shop/base.html:31
 msgid "Your cart is empty."

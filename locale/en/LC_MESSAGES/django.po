@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-02 17:28+0100\n"
+"POT-Creation-Date: 2022-08-02 17:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,26 @@ msgstr ""
 
 #: main/settings.py:125
 msgid "Spanish"
+msgstr ""
+
+#: main/urls.py:24
+msgid "admin/"
+msgstr ""
+
+#: main/urls.py:25
+msgid "cart/"
+msgstr ""
+
+#: main/urls.py:26
+msgid "orders/"
+msgstr ""
+
+#: main/urls.py:27
+msgid "payment/"
+msgstr ""
+
+#: main/urls.py:28
+msgid "coupons/"
 msgstr ""
 
 #: shop/templates/shop/base.html:10 shop/templates/shop/base.html:15
