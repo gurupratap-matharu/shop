@@ -124,7 +124,13 @@ LANGUAGES = (
     ("en", _("English")),
     ("es", _("Spanish")),
 )
-LOCALE_PATHS = (BASE_DIR / "locale/",)
+LOCALE_PATHS = (
+    BASE_DIR / "locale/",
+    BASE_DIR / "orders/locale/",
+    BASE_DIR / "coupons/locale/",
+    BASE_DIR / "payment/locale/",
+    BASE_DIR / "cart/locale/",
+)
 
 TIME_ZONE = "UTC"
 
