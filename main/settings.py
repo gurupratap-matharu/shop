@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third party
     "rosetta",
+    "localflavor",
     # local apps
     "shop.apps.ShopConfig",
     "cart.apps.CartConfig",
