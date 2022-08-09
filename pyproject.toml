@@ -15,6 +15,7 @@ python-dotenv = "^0.20.0"
 weasyprint = "^56.1"
 Werkzeug = "^2.2.1"
 django-rosetta = "^0.9.8"
+django-localflavor = "^3.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
