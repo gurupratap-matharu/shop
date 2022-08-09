@@ -6,6 +6,7 @@ from django.views.generic import DetailView, ListView
 from cart.forms import CartAddProductForm
 
 from .models import Category, Product
+from .recommender import Recommender
 
 
 class ProductList(ListView):
@@ -44,4 +45,13 @@ class ProductDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["cart_product_form"] = CartAddProductForm()
+        context["recommended_products"] = self.get_recommendations()
+
         return context
+
+    def get_recommendations(self):
+
+        r = Recommender()  # Veer avoid this. Use dependency injection here
+        recommended_products = r.suggest_products_for([self.get_object()], 4)
+
+        return recommended_products
