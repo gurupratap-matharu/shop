@@ -17,6 +17,7 @@ Werkzeug = "^2.2.1"
 django-rosetta = "^0.9.8"
 django-localflavor = "^3.1"
 redis = "^4.3.4"
+mercadopago = "^2.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
