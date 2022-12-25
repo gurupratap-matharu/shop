@@ -6,7 +6,7 @@ authors = ["Gurupratap Matharu <gurupratap.matharu@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-Django = "^4.0.6"
+Django = "^4.0.8"
 Pillow = "^9.2.0"
 celery = "^5.2.7"
 flower = "^1.1.0"
